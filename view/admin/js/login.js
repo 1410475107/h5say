@@ -44,7 +44,7 @@ window.onload = function () {
                         //一切OK就开始登录处理
                         axios({
                             method: 'post',
-                            url: './loginsubmit',
+                            url: '/adminlogin/loginsubmit',
                             /*
                             headers: {
                                 'Content-Type': 'application/x-www-form-urlencoded'

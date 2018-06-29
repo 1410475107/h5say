@@ -1,34 +1,5 @@
-const express 		= require('express');
-const path 			= require('path');
-const fs 			= require('fs');
-const url 			= require('url');
-const cookieParser 	= require('cookie-parser');
-const session 		= require('express-session');
-const multer 		= require('multer');
-var svgCaptcha 		= require('svg-captcha');
-var dateFormat 		= require('dateformat'); 
-const globalFun 	= require('../../lib/global.fun.js');
-const mydb 			= require('../../lib/mysql.js');
-/*	
-	规范的写法
-	var rootpath 	= path.dirname(path.dirname(__dirname));
-	const mydb 		= require(path.join(rootpath, 'lib/mysql.js'));
-	const globalFun = require(path.join(rootpath, 'lib/global.fun.js'));
-*/
 module.exports = function (){
 	var route = express.Router();
-	//使用cookie
-	var secret = 'app.h5say.com';
-	route.use(cookieParser(secret));
-	var co = {maxAge:30*24*3600*1000};
-	route.use(session({
-		secret:'123asdad45545',
-		name:'session_id',
-		resave: true,
-  		saveUninitialized: true,
-		cookie:{maxAge:1800*1000}
-	}));
-
 	//登录页面
 	route.get('/', function(req, res){
 		res.render('admin/login', {
@@ -59,7 +30,7 @@ module.exports = function (){
 					//记录session
 					req.session.username 	= data[0].username;
 					req.session.aid 		= data[0].aid;
-
+					console.log(req.session.username);
 					//更新账号信息
 					var sql1 = 'UPDATE admin SET lasttimes= ?, ip=?, loginnum = loginnum + 1 WHERE aid = ?';
 					mydb.query(sql1, [new Date(), req.ip, data[0].aid], function(err, result){
@@ -78,9 +49,9 @@ module.exports = function (){
     route.use(express.static('view/admin'));
 
 	//页面不存在处理
-	// route.use('*', function(req, res){
-	// 	res.render('admin/404');
-	// });
+	route.use('*', function(req, res){
+		res.render('admin/404');
+	});
 
 	return route;
 }
