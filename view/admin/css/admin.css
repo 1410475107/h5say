@@ -1,0 +1,11 @@
+
+.adminlogin{
+    width: 800px;
+    margin: 160px auto 0;
+}
+.adminlogin .el-button, .adminlogin .el-input__inner{
+    border-radius: 0;
+}
+.adminlogin .el-button+.el-button{
+    margin-left: 0;
+}
