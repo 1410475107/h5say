@@ -44,10 +44,8 @@ module.exports = function (){
 			}
 		});
     });
-
     //静态资源托管
     route.use(express.static('view/admin'));
-
 	//页面不存在处理
 	route.use('*', function(req, res){
 		res.render('admin/404');

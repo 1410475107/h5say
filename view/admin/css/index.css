@@ -1,4 +1,52 @@
-*{
- margin: 0;
- padding: 0;   
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size: 12px;
+    font-family: "微软雅黑","Microsoft YaHei","Microsoft YaHei UI", "Segoe UI", Arial, Verdana, Sans-Serif, sans-serif;
+}
+a{text-decoration: none}
+.el-header{
+    padding: 0;
+}
+.leftmenu{
+    /*让左侧导航高度100%*/
+    position: fixed;
+    top: 60px;
+    bottom: 0;
+    z-index: 999;
+    overflow-x: hidden;
+    background-color: rgb(84, 92, 100);
+    border-right: 2px solid #2299ee;
+}
+.main{
+    margin-left: 220px;
+}
+.el-menu-vertical-demo{border-right: 0;}
+.el-footer{
+    background-color: #eee;
+    line-height: 40px;
+    text-align: center;
+    color: #666;
+    font-weight: 300;
+    position: fixed;
+    bottom: 0;
+    left: 220px;
+    width: 100%;
+    z-index: 999;
+}
+.el-breadcrumb{
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+.el-table thead{
+    color: #666;
+}
+.el-pagination{
+    margin: 20px 0;
+}
+.el-pagination.is-background .el-pager li{
+    border-radius: 0;
 }

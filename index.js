@@ -21,9 +21,9 @@ var co = {maxAge:30*24*3600*1000};
 server.use(session({
     secret:'123asdad45545',
     name:'session_id',
-    resave: true,
+    resave: false,
       saveUninitialized: true,
-    cookie:{maxAge:1800*1000}
+    cookie:{maxAge:24*3600*1000}
 }));
 
 //创建管理员登录路由
