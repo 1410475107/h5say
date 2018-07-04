@@ -4,6 +4,7 @@ window.onload = function () {
         data() {
             return {
                 activeIndex2: '4',
+                leftmenuIndex: '1-3',
                 tableData: [{
                     date: '2016-05-03',
                     name: '王小虎',
